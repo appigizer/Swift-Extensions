@@ -12,16 +12,26 @@
 		573010C61E4DD2AE00810E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573010C41E4DD2AE00810E53 /* Main.storyboard */; };
 		573010C81E4DD2AE00810E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 573010C71E4DD2AE00810E53 /* Assets.xcassets */; };
 		573010CB1E4DD2AE00810E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573010C91E4DD2AE00810E53 /* LaunchScreen.storyboard */; };
+		573010D51E4DD3C200810E53 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573010D31E4DD3C200810E53 /* UIScrollViewExtension.swift */; };
+		573010D61E4DD3C200810E53 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573010D41E4DD3C200810E53 /* UIViewExtension.swift */; };
+		573010D81E4DD46300810E53 /* MiscExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573010D71E4DD46300810E53 /* MiscExtensions.swift */; };
+		573010DA1E4DD4A000810E53 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573010D91E4DD4A000810E53 /* NumberExtensions.swift */; };
+		573010DC1E4DD4C400810E53 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573010DB1E4DD4C400810E53 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		573010BD1E4DD2AE00810E53 /* PSSwiftExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSSwiftExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		573010BD1E4DD2AE00810E53 /* PSSwiftExtensionsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSSwiftExtensionsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		573010C01E4DD2AE00810E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		573010C21E4DD2AE00810E53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		573010C51E4DD2AE00810E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		573010C71E4DD2AE00810E53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		573010CA1E4DD2AE00810E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		573010CC1E4DD2AE00810E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		573010D31E4DD3C200810E53 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		573010D41E4DD3C200810E53 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		573010D71E4DD46300810E53 /* MiscExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscExtensions.swift; sourceTree = "<group>"; };
+		573010D91E4DD4A000810E53 /* NumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		573010DB1E4DD4C400810E53 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +48,7 @@
 		573010B41E4DD2AE00810E53 = {
 			isa = PBXGroup;
 			children = (
-				573010BF1E4DD2AE00810E53 /* PSSwiftExtensions */,
+				573010BF1E4DD2AE00810E53 /* PSSwiftExtensionsExample */,
 				573010BE1E4DD2AE00810E53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,14 +56,15 @@
 		573010BE1E4DD2AE00810E53 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				573010BD1E4DD2AE00810E53 /* PSSwiftExtensions.app */,
+				573010BD1E4DD2AE00810E53 /* PSSwiftExtensionsExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		573010BF1E4DD2AE00810E53 /* PSSwiftExtensions */ = {
+		573010BF1E4DD2AE00810E53 /* PSSwiftExtensionsExample */ = {
 			isa = PBXGroup;
 			children = (
+				573010D21E4DD3C200810E53 /* PSSwiftExtensions */,
 				573010C01E4DD2AE00810E53 /* AppDelegate.swift */,
 				573010C21E4DD2AE00810E53 /* ViewController.swift */,
 				573010C41E4DD2AE00810E53 /* Main.storyboard */,
@@ -61,15 +72,28 @@
 				573010C91E4DD2AE00810E53 /* LaunchScreen.storyboard */,
 				573010CC1E4DD2AE00810E53 /* Info.plist */,
 			);
+			name = PSSwiftExtensionsExample;
+			path = PSSwiftExtensions;
+			sourceTree = "<group>";
+		};
+		573010D21E4DD3C200810E53 /* PSSwiftExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				573010D71E4DD46300810E53 /* MiscExtensions.swift */,
+				573010D91E4DD4A000810E53 /* NumberExtensions.swift */,
+				573010DB1E4DD4C400810E53 /* StringExtension.swift */,
+				573010D31E4DD3C200810E53 /* UIScrollViewExtension.swift */,
+				573010D41E4DD3C200810E53 /* UIViewExtension.swift */,
+			);
 			path = PSSwiftExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		573010BC1E4DD2AE00810E53 /* PSSwiftExtensions */ = {
+		573010BC1E4DD2AE00810E53 /* PSSwiftExtensionsExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 573010CF1E4DD2AE00810E53 /* Build configuration list for PBXNativeTarget "PSSwiftExtensions" */;
+			buildConfigurationList = 573010CF1E4DD2AE00810E53 /* Build configuration list for PBXNativeTarget "PSSwiftExtensionsExample" */;
 			buildPhases = (
 				573010B91E4DD2AE00810E53 /* Sources */,
 				573010BA1E4DD2AE00810E53 /* Frameworks */,
@@ -79,9 +103,9 @@
 			);
 			dependencies = (
 			);
-			name = PSSwiftExtensions;
+			name = PSSwiftExtensionsExample;
 			productName = PSSwiftExtensions;
-			productReference = 573010BD1E4DD2AE00810E53 /* PSSwiftExtensions.app */;
+			productReference = 573010BD1E4DD2AE00810E53 /* PSSwiftExtensionsExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 573010B81E4DD2AE00810E53 /* Build configuration list for PBXProject "PSSwiftExtensions" */;
+			buildConfigurationList = 573010B81E4DD2AE00810E53 /* Build configuration list for PBXProject "PSSwiftExtensionsExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -114,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				573010BC1E4DD2AE00810E53 /* PSSwiftExtensions */,
+				573010BC1E4DD2AE00810E53 /* PSSwiftExtensionsExample */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573010D81E4DD46300810E53 /* MiscExtensions.swift in Sources */,
+				573010DC1E4DD4C400810E53 /* StringExtension.swift in Sources */,
 				573010C31E4DD2AE00810E53 /* ViewController.swift in Sources */,
 				573010C11E4DD2AE00810E53 /* AppDelegate.swift in Sources */,
+				573010D61E4DD3C200810E53 /* UIViewExtension.swift in Sources */,
+				573010DA1E4DD4A000810E53 /* NumberExtensions.swift in Sources */,
+				573010D51E4DD3C200810E53 /* UIScrollViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -248,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -286,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		573010B81E4DD2AE00810E53 /* Build configuration list for PBXProject "PSSwiftExtensions" */ = {
+		573010B81E4DD2AE00810E53 /* Build configuration list for PBXProject "PSSwiftExtensionsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				573010CD1E4DD2AE00810E53 /* Debug */,
@@ -295,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		573010CF1E4DD2AE00810E53 /* Build configuration list for PBXNativeTarget "PSSwiftExtensions" */ = {
+		573010CF1E4DD2AE00810E53 /* Build configuration list for PBXNativeTarget "PSSwiftExtensionsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				573010D01E4DD2AE00810E53 /* Debug */,

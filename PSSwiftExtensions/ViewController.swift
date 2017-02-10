@@ -11,24 +11,35 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class Cell: UICollectionViewCell {
-  
   @IBOutlet weak var label: UILabel!
 }
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+class ViewController: UIViewController  {
+  
+  var isScrollDirectinoVertical = true
+  
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
+    if collectionView != nil {
+      (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.scrollDirection = isScrollDirectinoVertical ? .vertical : .horizontal
+      collectionView.collectionViewLayout.invalidateLayout()
+    }
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if collectionView != nil {
+      collectionView.scrollsToEnd = true
+    }
+    if tableView != nil {
+      tableView.scrollsToEnd = true
+    }
     
-    // Register cell classes
-    //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-    
-    // Do any additional setup after loading the view.
-    self.collectionView?.scrollsToEnd = true
   }
   
   override func didReceiveMemoryWarning() {
@@ -37,12 +48,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
   }
   
   // MARK: UICollectionViewDataSource
-  
+}
+
+
+//MARK : -
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     // #warning Incomplete implementation, return the number of sections
     return 10
   }
-  
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of items
@@ -56,4 +70,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     return cell
   }
+}
+
+
+
+//MARK: - 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 10
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 10
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)!
+    cell.textLabel?.text = "\(indexPath)"
+    // Configure the cell
+    return cell
+  }
+  
 }

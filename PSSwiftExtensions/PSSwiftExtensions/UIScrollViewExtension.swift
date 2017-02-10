@@ -13,24 +13,28 @@ private var ScrollToEndTag = -750
 
 //MARK: - Scroll To End
 extension UIScrollView {
-  
-  //This is the only property you need to set to enable scrollToEnd functioanality
+
+//This is the only property you need to set to enable scrollToEnd functioanality
   open var scrollsToEnd: Bool {
     get {
-      guard let scrollButton = scrollToEndButton else { return false }
-      return !scrollButton.isHidden
+      return scrollToEndButton != nil
     } set {
-      var scrollButton = scrollToEndButton
-      if scrollButton == nil {
-        //create new
-        scrollButton = addScrollToEndButton()
+      if newValue {
+        if scrollToEndButton == nil {
+          let button = addScrollToEndButton()
+          button.isHidden = true
+          //animate visibility
+          button.show()
+        }
+      } else {
+        removeScrollToEndButton()
       }
-      scrollButton!.isHidden = !newValue
     }
   }
   
+  
   var isScrollDirectionHorizontal: Bool {
-    return self.contentSize.height == self.frame.height
+    return (self.contentSize.height - self.contentOffset.y) == self.frame.height
   }
   
   var scrollToEndButton: UIButton? {
@@ -38,7 +42,7 @@ extension UIScrollView {
   }
   
   var endContentOffset: CGPoint {
-    var offsetPoint = CGPoint.zero
+    var offsetPoint = self.contentOffset
     if self.contentSize.height > self.frame.height {
       offsetPoint.y = self.contentSize.height - self.frame.height
     }
@@ -47,6 +51,16 @@ extension UIScrollView {
       offsetPoint.x = self.contentSize.width - self.frame.width
     }
     return offsetPoint
+  }
+  
+  
+  ///Also removes the obsevers
+  private func removeScrollToEndButton() {
+    guard let scrollButton = scrollToEndButton else { return }
+    scrollButton.removeFromSuperview()
+    //remove observer
+    self.removeObserver(self, forKeyPath: "contentOffset")
+    print("Observer Removed")
   }
   
   
@@ -83,10 +97,12 @@ extension UIScrollView {
     
     //add extra bottom space so that the scroll to bottom button doesn't overlap with last row
     self.addObserver(self, forKeyPath: "contentOffset", options: [NSKeyValueObservingOptions.new], context: nil)
+    print("Observer Added")
     handleBottomButtonVisibility()
     
     return button
   }
+  
   
   func scrollToEndTappped() {
     self.setContentOffset(self.endContentOffset, animated: true)
@@ -94,11 +110,29 @@ extension UIScrollView {
   
   
   open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    print("observeValue \(change)")
     if object is UIScrollView && keyPath == "contentOffset" {
       handleBottomButtonVisibility()
     }
   }
   
+  
+//  open override func didMoveToWindow() {
+//    print("Window \(self.window)")
+//    if self.window == nil && scrollsToEnd {
+//      self.removeObserver(self, forKeyPath: "contentOffset")
+//    }
+//    super.didMoveToWindow()
+//  }
+  
+  open override func willMove(toSuperview newSuperview: UIView?) {
+    print("Superview \(newSuperview)")
+    if newSuperview == nil && scrollsToEnd {
+      removeScrollToEndButton()
+    }
+    super.willMove(toSuperview: newSuperview)
+  }
+
   private func handleBottomButtonVisibility() {
     if (self.hasScrolledTillEnd) {
       //animate the visibility
